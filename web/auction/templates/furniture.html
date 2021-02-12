@@ -1,0 +1,88 @@
+{% extends './base.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">{{furniture.name}}</h1>
+                    </div>
+
+                    <div class="row">
+                        <!-- Earnings (Annual) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                판매 가격</div>
+                                            <div class="h7 mb-0 font-weight-bold text-gray-800">
+                                                {% if furniture.origin_price %}
+                                                <del>{{furniture.origin_price | intcomma }}원</del> &rarr;
+                                                {% endif %}
+                                                {{furniture.price | intcomma }}원
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-won-sign fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Pending Requests Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                현재 대기자 수</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{people_num}}명</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-user-friends fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+
+                        <div class="col-lg-6">
+
+                            <!-- Default Card Example -->
+                            <div class="card mb-4">
+                                <div class="card-header">
+                                    상세 정보
+                                </div>
+                                <div class="card-body">
+                                    <div class="text-center">
+                                        {% if furniture.image %}
+                                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
+                                            src="{{furniture.image.url}}" alt="사진">
+                                        {% endif %}
+                                    </div>
+                                    <a href="/registerFurniture/{{furniture.id}}" class="btn btn-primary btn-icon-split">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-flag"></i>
+                                        </span>
+                                        <span class="text">대기열 등록</span>
+                                    </a>
+                                    <a href="/unRegisterFurniture/{{furniture.id}}" class="btn btn-danger btn-icon-split">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-trash"></i>
+                                        </span>
+                                        <span class="text">대기열 취소</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends './base.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">메인 페이지</h1>
+                    </div>
+
+                    <div class="row">
+                        <!-- Earnings (Annual) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                총 물품 판매 금액</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{price_sum | intcomma}}원</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-won-sign fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Pending Requests Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                현재 총 입찰자 수</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{people_num}}명</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-user-friends fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+
+                        <div class="col-lg-6">
+
+                            <!-- Default Card Example -->
+                            <div class="card mb-4">
+                                <div class="card-header">
+                                    공지사항
+                                </div>
+                                <div class="card-body">
+                                    <p>
+                                        안녕하세요. 2021년 퓨마스 & 화이트컴 
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+{% endblock %}

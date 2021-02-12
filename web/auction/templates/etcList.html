@@ -1,0 +1,42 @@
+{% extends './base.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">기타 카테고리</h1>
+                    <p class="mb-4">
+                        아래 표의 이름, 분류, 가격을 누르시게 되면<br> 
+                        각 항목별로 오름차순, 내림차순 된 결과를 볼 수 있습니다.<br>
+                        항목의 이름(파란색)을 누르시면 해당 상품의 판매 링크로 이동할 수 있습니다.
+                    </p>
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">판매 물품 목록</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>이름</th>
+                                            <th>분류</th>
+                                            <th>가격</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for etc in etc_list %}
+                                        <tr>
+                                            <td><a href="etc/{{etc.id}}">{{etc.name}}</td>
+                                            <td>{{etc.category}}</td>
+                                            <td>{{etc.price | intcomma }}원</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+{% endblock %}
