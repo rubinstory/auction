@@ -3,7 +3,7 @@ from .models import Book, Person, BoardGame, Furniture, ETC, OPTION_DICT
 from django.contrib import messages
 import random
 
-access_id = "20210311"
+access_id = "20210311" 
 
 def get_lot_winner():
 	winner_list = []
