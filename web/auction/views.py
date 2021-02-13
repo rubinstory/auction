@@ -14,7 +14,7 @@ def get_lot_winner():
 		if people_num == 0:
 			pass
 		elif people_num <= book_num:
-			for i in people_num:
+			for i in range(people_num):
 				winner_list.append([people_list[i], book])
 		else:
 			lot_list = random.sample(people_list, book_num)
@@ -27,7 +27,7 @@ def get_lot_winner():
 		if people_num == 0:
 			pass
 		elif people_num <= board_game_num:
-			for i in people_num:
+			for i in range(people_num):
 				winner_list.append([people_list[i], board_game])
 		else:
 			lot_list = random.sample(people_list, board_game_num)
@@ -41,7 +41,7 @@ def get_lot_winner():
 		if people_num == 0:
 			pass
 		elif people_num <= furniture_num:
-			for i in people_num:
+			for i in range(people_num):
 				winner_list.append([people_list[i], furniture])
 		else:
 			lot_list = random.sample(people_list, furniture_num)
@@ -55,7 +55,7 @@ def get_lot_winner():
 		if people_num == 0:
 			pass
 		elif people_num <= etc_num:
-			for i in people_num:
+			for i in range(people_num):
 				winner_list.append([people_list[i], etc])
 		else:
 			lot_list = random.sample(people_list, etc_num)
