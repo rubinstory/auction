@@ -18,22 +18,15 @@ MAJOR_DICT = {
 		}
 
 class Person(models.Model):
-	OPTION_LIST = (
-			("CSE", "정보컴퓨터공학과"),
-			("EEC", "전기공학과"),
-			("EE", "전자공학과"),
-			("ETC", "기타")
-		)
 	name = models.CharField(
 			default = "",
 			max_length = 100,
 			help_text = "이름을 입력하세요"
 		)
 	major = models.CharField(
-			choices = OPTION_LIST,
-			default = OPTION_LIST[-1][0],
+			default = "기타",
 			max_length = 100,
-			help_text = "전공을 선택하세요"
+			help_text = "전공을 입력하세요"
 		)
 	student_id = models.CharField(
 			default = "",
@@ -42,10 +35,10 @@ class Person(models.Model):
 		)
 
 	def __str__(self):
-		return self.name + "(" + MAJOR_DICT[self.major] + ", " + self.student_id + ")"
+		return self.name + "(" + self.major + ", " + self.student_id + ")"
 
 	def getMajor(self):
-		return MAJOR_DICT[self.major]
+		return self.major
 
 
 
