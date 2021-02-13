@@ -13,7 +13,7 @@ def get_lot_winner():
 		book_num = book.quantity
 		if people_num == 0:
 			pass
-		elif people_num < book_num:
+		elif people_num <= book_num:
 			for i in people_num:
 				winner_list.append([people_list[i], book])
 		else:
@@ -26,7 +26,7 @@ def get_lot_winner():
 		board_game_num = board_game.quantity
 		if people_num == 0:
 			pass
-		elif people_num < board_game_num:
+		elif people_num <= board_game_num:
 			for i in people_num:
 				winner_list.append([people_list[i], board_game])
 		else:
@@ -40,7 +40,7 @@ def get_lot_winner():
 		furniture_num = furniture.quantity
 		if people_num == 0:
 			pass
-		elif people_num < furniture_num:
+		elif people_num <= furniture_num:
 			for i in people_num:
 				winner_list.append([people_list[i], furniture])
 		else:
@@ -54,7 +54,7 @@ def get_lot_winner():
 		etc_num = etc.quantity
 		if people_num == 0:
 			pass
-		elif people_num < etc_num:
+		elif people_num <= etc_num:
 			for i in people_num:
 				winner_list.append([people_list[i], etc])
 		else:
