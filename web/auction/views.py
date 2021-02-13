@@ -1,6 +1,43 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Book, Person, BoardGame, Furniture, ETC, OPTION_DICT
 from django.contrib import messages
+import random
+
+access_id = "1"
+
+def get_lot_winner():
+	winner_list = []
+	for book in Book.objects.all():
+		people_num = book.people.count()
+		people_list = list(book.people.all())
+		book_num = book.quantity
+		if people_num == 0:
+			pass
+		elif people_num < book.quantity:
+			for i in people_num:
+				winner_list.append([people_list[i], book])
+		else:
+			lot_list = random.sample(people_list, book_num)
+			for person in lot_list:
+				winner_list.append([person, book])
+	return winner_list
+
+
+def lot(request):
+	if request.method == "POST":
+		access_id_get = str(request.POST.get("access_id"))
+		if access_id_get == access_id:
+			winner_list = get_lot_winner()
+			return render(request, 'lotWinner.html', {
+										 'winner_list':winner_list,
+										})
+
+		else:
+			messages.error(request, '접근번호가 틀렸습니다.')
+			return render(request, 'lot.html')
+
+	else:
+		return render(request, 'lot.html')
 
 def home(request):
 	price_sum = 0

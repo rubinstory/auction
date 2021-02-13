@@ -23,6 +23,9 @@ import auction.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', auction.views.home, name = 'home'),
+    path('lot', auction.views.lot, name = 'lot'),
+    path('lotWinner', auction.views.lot, name = 'lot_winner'),
+
     path('bookList', auction.views.book_list, name = 'book_list'),
     path('book/<int:book_id>', auction.views.book, name = 'book'),
     path('registerBook', auction.views.register_book, name = 'register_book'),
