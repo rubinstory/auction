@@ -13,13 +13,55 @@ def get_lot_winner():
 		book_num = book.quantity
 		if people_num == 0:
 			pass
-		elif people_num < book.quantity:
+		elif people_num < book_num:
 			for i in people_num:
 				winner_list.append([people_list[i], book])
 		else:
 			lot_list = random.sample(people_list, book_num)
 			for person in lot_list:
 				winner_list.append([person, book])
+	for board_game in BoardGame.objects.all():
+		people_num = board_game.people.count()
+		people_list = list(board_game.people.all())
+		board_game_num = board_game.quantity
+		if people_num == 0:
+			pass
+		elif people_num < board_game_num:
+			for i in people_num:
+				winner_list.append([people_list[i], board_game])
+		else:
+			lot_list = random.sample(people_list, board_game_num)
+			for person in lot_list:
+				winner_list.append([person, board_game])
+
+	for furniture in Furniture.objects.all():
+		people_num = furniture.people.count()
+		people_list = list(furniture.people.all())
+		furniture_num = furniture.quantity
+		if people_num == 0:
+			pass
+		elif people_num < furniture_num:
+			for i in people_num:
+				winner_list.append([people_list[i], furniture])
+		else:
+			lot_list = random.sample(people_list, furniture_num)
+			for person in lot_list:
+				winner_list.append([person, furniture])
+
+	for etc in ETC.objects.all():
+		people_num = etc.people.count()
+		people_list = list(etc.people.all())
+		etc_num = etc.quantity
+		if people_num == 0:
+			pass
+		elif people_num < etc_num:
+			for i in people_num:
+				winner_list.append([people_list[i], etc])
+		else:
+			lot_list = random.sample(people_list, etc_num)
+			for person in lot_list:
+				winner_list.append([person, etc])
+
 	return winner_list
 
 
