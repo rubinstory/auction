@@ -54,6 +54,20 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
+                계정
+            </div>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'signup' %}">
+                    <i class="fas fa-user-plus"></i>
+                    <span>계정 생성</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
                 목록
             </div>
 
@@ -79,6 +93,20 @@
                 <a class="nav-link" href="{% url 'etc_list' %}">
                     <i class="fas fa-tools"></i>
                     <span>기타</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                관리자 메뉴
+            </div>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'status' %}">
+                    <i class="fas fa-users-cog"></i>
+                    <span>신청 현황</span></a>
             </li>
 
             <li class="nav-item">

@@ -1,0 +1,38 @@
+{% extends './base.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">당첨자 현황</h1>
+                    <p class="mb-4">
+                        2021 동아리 장터의 물품별 신청자 현황입니다.<br>
+                    </p>
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">신청자 목록</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>이름</th>
+                                            <th>물품</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for person, etc in status_list %}
+                                        <tr>
+                                            <td>{{person.name}}({{person.major}}, {{person.student_id}})</td>
+                                            <td>{{etc.name}}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+{% endblock %}

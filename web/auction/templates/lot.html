@@ -32,13 +32,11 @@
             <div class="card-body p-0">
                 <!-- Nested Row within Card Body -->
                 <div class="row">
-                    <div class="col-lg-5 d-none d-lg-block">
-                        <!-- 사진 -->
-                    </div>
+                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
                     <div class="col-lg-7">
                         <div class="p-5">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">동아리 장터 당첨자 추첨</h1>
+                                <h1 class="h4 text-gray-900 mb-4">동아리 장터 당첨자 추첨</h1><br>
                             </div>
                             <form class="user" action="{% url 'lot' %}" method="POST">
                                 {% csrf_token %}
@@ -46,10 +44,13 @@
                                     <input type="text" class="form-control form-control-user" name="access_id"
                                         placeholder="접근코드를 입력하세요">
                                 </div>
+                                <br>
                                 <input type="submit" class="btn btn-primary btn-user btn-block" value="접근코드 입력">
+                                <br>
                                 <a href="/" class="btn btn-primary btn-user btn-block">
                                     홈으로 돌아가기
                                 </a>
+                                <br>
                             </form>
                             <br>
                             {% for message in messages %}

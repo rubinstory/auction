@@ -34,6 +34,12 @@ class Person(models.Model):
 			help_text = "학번을 입력하세요"
 		)
 
+	password = models.CharField(
+			default = "password",
+			max_length = 100,
+			help_text = "비밀번호를 입력하세요"
+		)
+
 	def __str__(self):
 		return self.name + "(" + self.major + ", " + self.student_id + ")"
 
@@ -60,7 +66,7 @@ class Book(models.Model):
 
 	origin_price = models.IntegerField(
 			default = 0,
-			help_text = "원래 금액"
+			help_text = "원래 금액 / 모르면 0원"
 		)
 
 	price = models.IntegerField(
@@ -108,7 +114,7 @@ class BoardGame(models.Model):
 
 	origin_price = models.IntegerField(
 			default = 0,
-			help_text = "원래 금액"
+			help_text = "원래 금액 / 모르면 0원"
 		)
 
 	price = models.IntegerField(
@@ -147,7 +153,7 @@ class Furniture(models.Model):
 
 	origin_price = models.IntegerField(
 			default = 0,
-			help_text = "원래 금액"
+			help_text = "원래 금액 / 모르면 0원"
 		)
 
 	price = models.IntegerField(
@@ -186,7 +192,7 @@ class ETC(models.Model):
 
 	origin_price = models.IntegerField(
 			default = 0,
-			help_text = "원래 금액"
+			help_text = "원래 금액 / 모르면 0원"
 		)
 
 	price = models.IntegerField(

@@ -32,37 +32,26 @@
             <div class="card-body p-0">
                 <!-- Nested Row within Card Body -->
                 <div class="row">
-                    <div class="col-lg-5 d-none d-lg-block">
-                        {% if book.image %}
-                        <img src="{{book.image.url}}" width="500" height="700">
-                        {% endif %}
-                    </div>
+                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
                     <div class="col-lg-7">
                         <div class="p-5">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">책 제목: {{book.name}}</h1>
-                                <h1 class="h4 text-gray-900 mb-4">
-                                    분류: {{book.getCategory}} | 가격: {{ book.price | intcomma }}원
-                                </h1>
+                                <h1 class="h4 text-gray-900 mb-4">동아리 장터 현황 조회</h1><br>
                             </div>
-                            <form class="user" action="{% url 'register_book' %}" method="POST">
+                            <form class="user" action="{% url 'status' %}" method="POST">
                                 {% csrf_token %}
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-user" name="student_id"
-                                        placeholder="학번을 입력하세요(9자리)">
+                                    <input type="text" class="form-control form-control-user" name="access_id"
+                                        placeholder="접근코드를 입력하세요"><br>
                                 </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control form-control-user" name="password"
-                                        placeholder="비밀번호를 입력하세요">
-                                </div>
-                                <input type="hidden" value = "{{book.id}}" name = "book_id">
-                                <input type="submit" class="btn btn-primary btn-user btn-block" value="대기열 등록하기">
+                                <input type="submit" class="btn btn-primary btn-user btn-block" value="접근코드 입력">
                                 <br>
                                 <a href="/" class="btn btn-primary btn-user btn-block">
-                                    도서 목록으로 돌아가기
+                                    홈으로 돌아가기
                                 </a>
                                 <br>
                             </form>
+                            <br>
                             {% for message in messages %}
                                     <div class="text-center" style="color:red;">
                                     <h1 class="small">{{ message }}</h1>

@@ -22,7 +22,10 @@ import auction.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('signup', auction.views.signup, name = 'signup'),
     path('', auction.views.home, name = 'home'),
+    path('status', auction.views.status, name = 'status'),
+    path('statusResult', auction.views.status, name = 'status_result'),
     path('lot', auction.views.lot, name = 'lot'),
     path('lotWinner', auction.views.lot, name = 'lot_winner'),
 
