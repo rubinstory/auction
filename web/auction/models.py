@@ -3,9 +3,9 @@ import os
 
 OPTION_DICT = {
 			"Freshmen":"1학년",
-			"Computer":"컴퓨터공학과",
-			"Electrical":"전기공학과",
-			"Electric":"전자공학과",
+			"Computer":"컴공",
+			"Electrical":"전기",
+			"Electric":"전자",
 			"Elective":"교양",
 			"ETC":"기타"
 		}
@@ -52,16 +52,21 @@ class Person(models.Model):
 class Book(models.Model):
 	OPTION_LIST = (
 			("Freshmen", "1학년"),
-			("Computer", "컴퓨터공학과"),
-			("Electrical", "전기공학과"),
-			("Electric", "전자공학과"),
+			("Computer", "컴공"),
+			("Electrical", "전기"),
+			("Electric", "전자"),
 			("Elective", "교양"),
-			("ETC", "기타")
+			("ETC", "기타"),
 		)
 	name = models.CharField(
 			default = "",
 			max_length = 100,
 			help_text = "책 이름을 입력하세요"
+		)
+
+	quantity = models.IntegerField(
+			default = 1,
+			help_text = "수량"
 		)
 
 	origin_price = models.IntegerField(
@@ -107,6 +112,11 @@ class BoardGame(models.Model):
 			help_text = "보드게임 이름을 입력하세요"
 		)
 
+	quantity = models.IntegerField(
+			default = 1,
+			help_text = "수량"
+		)
+
 	origin_price = models.IntegerField(
 			default = 0,
 			help_text = "원래 금액"
@@ -141,6 +151,11 @@ class Furniture(models.Model):
 			help_text = "가구 이름을 입력하세요"
 		)
 
+	quantity = models.IntegerField(
+			default = 1,
+			help_text = "수량"
+		)
+
 	origin_price = models.IntegerField(
 			default = 0,
 			help_text = "원래 금액"
@@ -173,6 +188,11 @@ class ETC(models.Model):
 			default = "",
 			max_length = 100,
 			help_text = "이름을 입력하세요"
+		)
+
+	quantity = models.IntegerField(
+			default = 1,
+			help_text = "수량"
 		)
 
 	origin_price = models.IntegerField(

@@ -4,10 +4,10 @@ from django.contrib import messages
 
 def home(request):
 	price_sum = 0
-	for book in Book.objects.all(): price_sum += book.price
-	for board_game in BoardGame.objects.all(): price_sum += board_game.price
-	for furniture in Furniture.objects.all(): price_sum += furniture.price
-	for etc in ETC.objects.all(): price_sum += etc.price
+	for book in Book.objects.all(): price_sum += book.price * book.quantity
+	for board_game in BoardGame.objects.all(): price_sum += board_game.price * board_game.quantity
+	for furniture in Furniture.objects.all(): price_sum += furniture.price * furniture.quantity
+	for etc in ETC.objects.all(): price_sum += etc.price * etc.quantity
 	people_num = Person.objects.all().count()
 	return render(request, 'home.html', {
 										 'people_num':people_num,
