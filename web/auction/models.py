@@ -37,10 +37,6 @@ class Person(models.Model):
 	def __str__(self):
 		return self.name + "(" + self.major + ", " + self.student_id + ")"
 
-	def getMajor(self):
-		return self.major
-
-
 
 class Book(models.Model):
 	OPTION_LIST = (
