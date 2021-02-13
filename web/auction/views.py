@@ -153,15 +153,15 @@ def signup(request):
 			return render(request, 'signUp.html')
 
 		else:
+			if len(_student_id) != 9:
+				messages.error(request, '학번은 9자리로 입력해야 합니다.')
+				return render(request, 'signUp.html')
+			elif not _student_id.isdigit():
+				messages.error(request, '학번에는 숫자만 입력하야 합니다.')
+				return render(request, 'signUp.html')
 			for person in person_list:
 				if (person.student_id == _student_id):
 					messages.error(request, '이미 가입하셨습니다.')
-					return render(request, 'signUp.html')
-				elif len(_student_id) != 9:
-					messages.error(request, '학번은 9자리로 입력해야 합니다.')
-					return render(request, 'signUp.html')
-				elif not _student_id.isdigit():
-					messages.error(request, '학번에는 숫자만 입력하야 합니다.')
 					return render(request, 'signUp.html')
 			_person = Person()
 			_person.name = _name
