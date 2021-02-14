@@ -112,7 +112,7 @@ USE_TZ = True
 
 
 # static files
-STATIC_URL = '/static/'
+STATIC_URL = '/home/auction/auction/web/static/'
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
     STATIC_DIR,
@@ -120,4 +120,4 @@ STATICFILES_DIRS = [
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
-MEDIA_URL = '/uploads/'
+MEDIA_URL = '/home/auction/auction/web/uploads/'
