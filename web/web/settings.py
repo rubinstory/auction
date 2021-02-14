@@ -13,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '77y4e7v@se=aw0e*vl@#t=ec9k&@4$^w$b1n)dbm3^@5y-!%m@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 handler404 = "auction.views.error404"
 handler500 = "auction.views.error500"
 
