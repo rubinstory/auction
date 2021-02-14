@@ -5,6 +5,12 @@ import random
 
 access_id = "20210311" 
 
+def error404(request):
+	return render(request, "404.html", status = 404)
+
+def error500(request):
+	return render(request, "500.html", status = 500)
+
 def get_lot_winner():
 	winner_list = []
 	for book in Book.objects.all():
